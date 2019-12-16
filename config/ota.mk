@@ -1,14 +1,14 @@
-ifeq ($(CUSTOM_BUILD_TYPE), OFFICIAL)
+ifeq ($(CYANOGEN_BUILD_TYPE), OFFICIAL)
 
-CUSTOM_OTA_VERSION_CODE := ten
+CYANOGEN_OTA_VERSION_CODE := ten
 
-CUSTOM_PROPERTIES += \
-    org.pixelexperience.ota.version_code=$(CUSTOM_OTA_VERSION_CODE)
+CYANOGEN_PROPERTIES += \
+    ro.cyanogen.ota.version_code=$(CYANOGEN_OTA_VERSION_CODE)
 
 PRODUCT_PACKAGES += \
     Updates
 
 PRODUCT_COPY_FILES += \
-    vendor/aosp/config/permissions/org.pixelexperience.ota.xml:system/etc/permissions/org.pixelexperience.ota.xml
+    vendor/cyanogen/config/permissions/ro.cyanogen.ota.xml:system/etc/permissions/ro.cyanogen.ota.xml
 
 endif

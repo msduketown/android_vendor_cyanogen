@@ -1,2 +1,2 @@
-# Inherit full common PixelExperience stuff
-$(call inherit-product, vendor/aosp/config/common_full.mk)
+# Inherit full common CyanogenOS stuff
+$(call inherit-product, vendor/cyanogen/config/common_full.mk)

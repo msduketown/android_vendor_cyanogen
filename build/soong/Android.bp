@@ -1,14 +1,14 @@
 bootstrap_go_package {
-    name: "soong-aosp",
-    pkgPath: "aosp/soong/android",
+    name: "soong-cyanogen",
+    pkgPath: "cyanogen/soong/android",
     srcs: [
         "android/variable.go",
     ],
 }
 
 bootstrap_go_package {
-    name: "soong-custom-generator",
-    pkgPath: "aosp/soong/generator",
+    name: "soong-cyanogen-generator",
+    pkgPath: "cyanogen/soong/generator",
     deps: [
         "blueprint",
         "blueprint-pathtools",
@@ -23,7 +23,7 @@ bootstrap_go_package {
     pluginFor: ["soong_build"],
 }
 
-custom_generator {
+cyanogen_generator {
     name: "generated_kernel_includes",
 
     // The headers make command
