@@ -1,26 +1,26 @@
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_USES_AOSP_APNS_CONF),)
+ifeq ($(TARGET_USES_CYANOGEN_APNS_CONF),)
 ################################
 # Copies the APN list file into system/etc for the product as apns-conf.xml.
-# In the case where $(CUSTOM_APNS_FILE) is defined, the content of $(CUSTOM_APNS_FILE)
+# In the case where $(CYANOGEN_APNS_FILE) is defined, the content of $(CYANOGEN_APNS_FILE)
 # is added or replaced to the $(DEFAULT_APNS_FILE).
 include $(CLEAR_VARS)
 
 LOCAL_MODULE := apns-conf.xml
 LOCAL_MODULE_CLASS := ETC
 
-DEFAULT_APNS_FILE := vendor/aosp/prebuilt/common/etc/apns-conf.xml
+DEFAULT_APNS_FILE := vendor/cyanogen/prebuilt/common/etc/apns-conf.xml
 
-ifdef CUSTOM_APNS_FILE
-CUSTOM_APNS_SCRIPT := vendor/aosp/tools/custom_apns.py
+ifdef CYANOGEN_APNS_FILE
+CYANOGEN_APNS_SCRIPT := vendor/cyanogen/tools/cyanogen_apns.py
 FINAL_APNS_FILE := $(local-generated-sources-dir)/apns-conf.xml
 
-$(FINAL_APNS_FILE): PRIVATE_SCRIPT := $(CUSTOM_APNS_SCRIPT)
-$(FINAL_APNS_FILE): PRIVATE_CUSTOM_APNS_FILE := $(CUSTOM_APNS_FILE)
-$(FINAL_APNS_FILE): $(CUSTOM_APNS_SCRIPT) $(DEFAULT_APNS_FILE)
+$(FINAL_APNS_FILE): PRIVATE_SCRIPT := $(CYANOGEN_APNS_SCRIPT)
+$(FINAL_APNS_FILE): PRIVATE_CYANOGEN_APNS_FILE := $(CYANOGEN_APNS_FILE)
+$(FINAL_APNS_FILE): $(CYANOGEN_APNS_SCRIPT) $(DEFAULT_APNS_FILE)
 	rm -f $@
-	python $(PRIVATE_SCRIPT) $@ $(PRIVATE_CUSTOM_APNS_FILE)
+	python $(PRIVATE_SCRIPT) $@ $(PRIVATE_CYANOGEN_APNS_FILE)
 else
 FINAL_APNS_FILE := $(DEFAULT_APNS_FILE)
 endif
