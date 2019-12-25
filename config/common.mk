@@ -123,10 +123,10 @@ PRODUCT_PACKAGES += \
 include vendor/cyanogen/config/branding.mk
 
 # OTA
-include vendor/cyanogen/config/ota.mk
+# include vendor/cyanogen/config/ota.mk
 
 # GApps
-include vendor/gapps/config.mk
+# include vendor/gapps/config.mk
 
 # Pixel Style
 include vendor/pixelstyle/config.mk
